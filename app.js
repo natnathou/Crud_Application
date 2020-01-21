@@ -352,7 +352,6 @@ app.post('/contact', async (req,res) => {
 		host: process.env.Service_email,
 		port: 587,
 		secure: false,
-		service: process.env.Service_email,
 		auth: {
 			user: process.env.User_email,
 			pass: process.env.Pass_email
@@ -377,7 +376,7 @@ app.post('/contact', async (req,res) => {
 
 app.get('/contact', (req,res) => {
 
-	console.log('dans get ' + emailResponse);
+	console.log(emailResponse);
 	let titlePage = ' contact';
 	res.render('contact', {titlePage:titlePage, tel:tel, email:email, whatsap:whatsap, facebook:facebook, adminCheck:utilities.checkIfAdminForClientSide(req), onlineCheck:utilities.checkIfOnlineForClientSide(req),emailResponse:emailResponse});
 	emailResponse='';
