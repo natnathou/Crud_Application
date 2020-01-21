@@ -240,7 +240,7 @@ app.get('/article/:id/edit', utilities.AdminisLoggedIn, async (req, res) => {
 
 	try{
 
-		let titlePage = findArticle.name + ' /edition';
+		let titlePage = findArticle.name + ' edition';
 		res.render('article_edition', {Article:findArticle, titlePage:titlePage, tel:tel, email:email, whatsap:whatsap, facebook:facebook, adminCheck:utilities.checkIfAdminForClientSide(req), onlineCheck:utilities.checkIfOnlineForClientSide(req)});
 
 	} catch (err){
@@ -349,9 +349,9 @@ app.post('/contact', async (req,res) => {
 	};
 
 	let transporter = nodemailer.createTransport({
-		host: 'smtp.gmail.com',
-		port: 465,
-		secure: true,
+		host: process.env.Service_email,
+		port: 587,
+		secure: false,
 		service: process.env.Service_email,
 		auth: {
 			user: process.env.User_email,
@@ -378,7 +378,7 @@ app.post('/contact', async (req,res) => {
 app.get('/contact', (req,res) => {
 
 	console.log('dans get ' + emailResponse);
-	let titlePage = ' /contact';
+	let titlePage = ' contact';
 	res.render('contact', {titlePage:titlePage, tel:tel, email:email, whatsap:whatsap, facebook:facebook, adminCheck:utilities.checkIfAdminForClientSide(req), onlineCheck:utilities.checkIfOnlineForClientSide(req),emailResponse:emailResponse});
 	emailResponse='';
 
