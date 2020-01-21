@@ -349,7 +349,9 @@ app.post('/contact', async (req,res) => {
 	};
 
 	let transporter = nodemailer.createTransport({
-		service: process.env.Service_email,
+		host: process.env.Service_email,
+		port: 465,
+		secure: true,
 		auth: {
 			user: process.env.User_email,
 			pass: process.env.Pass_email
