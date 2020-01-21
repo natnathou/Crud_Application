@@ -1,4 +1,4 @@
 node_modules
 .idea
-.package-lock
-.nodemon
+.package-lock.json
+.nodemon.json
