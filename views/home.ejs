@@ -1,0 +1,49 @@
+<%- include('partials/header') %>
+<div id="picture_container" class="section_principal">
+		<h1>
+			Give to your live to<br> feel Better!
+		</h1>
+		
+</div>
+<h1 id="titleWord" class="section_principal">
+			Give to your live to<br> feel Better!
+</h1>
+<section class="container grille section_principal">
+	<% tipoul.forEach(function(tipouls){ %>
+		<div>
+			<div>
+				<img src="data:<%=tipouls.image.contentType%>;base64,<%= tipouls.image.data.toString('base64') %>" alt=" <%= tipouls.name%>" class="imageContainer">
+			</div>
+			<div class="textDescription">
+				<h3><%=tipouls.name %></h3>
+				<p><%= tipouls.description%>?</p>
+			</div>
+			<div id="basDeGrille"><a href="/home/<%= tipouls._id%>">></a>
+			<p>En savoir plus</p>				
+			</div>
+		</div>
+		<% }); %>
+</section>
+<section id="article_section" class="container section_principal">
+<div id="article">
+	<% Article.forEach(function(article){ %>
+	<h3><%= article.name%></h3>
+	<p><%= article.text %></p>
+	
+	<div class="basDeGrille"><a href="/article/<%= article._id%>">></a>
+			<p>En savoir plus</p>				
+	</div>
+	<% }); %>
+
+	
+</div>
+	
+<div id="facebook_section" class="section_principal">
+	<div class="fb-page" data-href="<%=facebook%>" data-tabs="timeline" data-width="300" data-height="500" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/soinplante/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/soinplante/">Naturopathie</a></blockquote></div>
+</div>
+
+</section>
+<div id="fb-root" class="section_principal"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v5.0"></script>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,34 @@
+<%- include('partials/header') %>
+
+<div id="registerBlock" class="container section_principal">
+	<div>
+		<img src="login-image.jpg" alt="login_image">
+	</div>
+	<form action="/login" method="POST" class="loginForm signupForm">
+			<div class="blockInRegister">
+				<input type="text" id="username" name="username" placeholder="Username" required="required">
+			</div>
+			<div class="blockInRegister">
+				<input type="password" id="password" name="password" placeholder="Password" required="required">
+			</div>
+			<div class="submit">
+				<input type="submit" id="submit" value="Login">
+			</div>
+	</form>
+</div>
+
+<script>
+	const registerBlock = document.getElementById('registerBlock');
+	const submits       = document.getElementById('submit');
+	const loaders       = document.getElementById('loader');
+
+	submits.addEventListener('click', e => {
+			registerBlock.style.display='none';
+			loaders.style.display='block';
+
+	});
+</script>
+
+
+
+<%- include('partials/footer') %>

@@ -1,0 +1,65 @@
+<%- include('partials/header') %>
+<div id="registerBlock" class="container">
+	<div>
+		<img src="login-image.jpg" alt="login_image">
+	</div>
+	<form action="/register" method="POST" class="signupForm">
+
+			<div class="blockInRegister">
+
+				<% if(placeholderIfUserExist==='User already exist'){%>
+				<input type="text" placeholder="<%=placeholderIfUserExist%>" id="username" class="userExist" name="username" required>
+					
+				<%}else{%>
+				
+				<input type="text" id="username" name="username" placeholder="Username" required>
+				<%}%>
+			</div>
+			<div class="blockInRegister">
+				<% if(placeholderIfUserExist==='Email already exist'){%>
+				<input type="email" placeholder="<%=placeholderIfUserExist%>" id="email" class="userExist" name="email" required>
+				<%} else{%>
+				<input type="email" id="email" name="email" placeholder="Email" required>
+				<%}%>
+			</div>
+			<div class="blockInRegister">
+				<input type="password" id="password" pattern=".{8,12}" required title="8 to 12 characters" name="password" placeholder="Password" required>
+			</div>
+			<div class="blockInRegister">
+				<input name="password_confirm"  pattern=".{8,12}" required title="8 to 12 characters" type="password" id="password_confirm" placeholder="Password Confirm" />
+			</div>
+			<div class="submit">
+				<input type="submit" id='submit' value="Sign Up">
+			</div>
+	</form>
+</div>
+
+<!-- Script pas encore pret ajax pour vérifier si user ou email existe déja -->
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+	const pass             = document.getElementById('password');
+	const password_confirm = document.getElementById('password_confirm');
+
+	password_confirm.addEventListener('input', async e => {
+		if (pass.value != password_confirm.value) {
+	            password_confirm.setCustomValidity('Password Must be Matching.');
+	        } else {
+	            password_confirm.setCustomValidity('');
+	        }
+	});
+
+	const registerBlock = document.getElementById('registerBlock');
+	const submits       = document.getElementById('submit');
+	const loaders        = document.getElementById('loader');
+
+	submits.addEventListener('click', e => {
+		if(pass.value === password_confirm.value){
+			registerBlock.style.display='none';
+			loaders.style.display='block';
+		}
+
+	});
+	
+</script>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,19 @@
+<%- include('partials/header') %>
+
+	<div class="container section_principal" id="section_description">
+	<% if(adminCheck){%>
+		<div id="boutonModification">
+			<form>
+			<button id="bouttonUpdate"><a href="/article/<%=Article._id%>/edit">UPDATE</a></button>
+			</form>
+		</div>
+	<% }%>
+		<h2><%= Article.name %></h2>
+
+		<p>
+			<%= Article.text %>
+		</p>			
+			
+	</div>
+
+<%- include('partials/footer') %>

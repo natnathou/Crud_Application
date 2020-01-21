@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title><%= titlePage %></title>
+	<link rel="stylesheet" type="text/css" href="normalized.css">
+	<link rel="stylesheet" type="text/css" href="loader.css">
+	<link rel="stylesheet" type="text/css" media="screen and (min-width: 1280px)" href="style_bigscreen.css">
+	<link rel="stylesheet" type="text/css" media="screen and (min-width: 1024px) and  (max-width: 1280px)" href="style_mediumscreen.css">
+	<link rel="stylesheet" type="text/css" media="screen and (max-width: 1024px)" href="style_smallscreen.css">
+	<link rel="stylesheet" type="text/css" href="biblioteque.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/b5c5c1f68c.js" crossorigin="anonymous"></script>
+	</head>
+<body>
+	<header>
+		<div id="en_tete" class="container">
+			<% if(!onlineCheck){%>
+			<div id="header_left_side">
+			<% } else{%>
+			<div id="header_left_side" class="onlineTrueLeftSide">
+			<% } %>
+				<div id="logo_up">
+					<a href="/home"><img src="logo.png" alt="logo"></a>
+				</div>
+				<% if(!onlineCheck){%>
+				<div id="navigation">
+				<% } else{%>
+				<div id="navigation" class="onlineTrueNavigation">
+				<% } %>
+
+					<nav>
+						<ul>
+							<li><a href="/home">ACCEUIL
+							</a></li>
+							<li>
+								<a href="/post">NOS POSTS
+								</a>
+							</li>
+							<% if(adminCheck){%>
+								<li><a href="/home/new">NEW SERVICE</a></li>
+							<% } %>
+							<% if(adminCheck){%>
+								<li><a href="/post/new">NEW POST</a></li>
+							<% } %>
+						</ul>
+					</nav>
+				</div>
+			</div>
+			<% if(!onlineCheck){%>
+			<div id="header_right_side">
+				<li><a href="/contact">CONTACT</a></li>
+			<% } else{%>
+			<div id="header_right_side" class="onlineTrueRightSide">
+				<li id="contact"><a href="/contact">CONTACT</a></li>
+			<% } %>
+			<% if(onlineCheck){%>
+				<li id="logout"><a href="/logout" id="logout"><i class="fas fa-power-off"></i></a></li>
+			<% } %>
+
+			</div>
+		</div>
+		<div id="enTeteSmall" class="container">
+			<div id="logo_up_small_size">
+						<a href="/home"><img src="logo.png" alt="logo"></a>
+			</div>
+			<nav id="en_tete_small_screen">
+			
+				<input type="checkbox" id="toglle" class="toglle_containers">
+				<label for="toglle" id="togglecontainer" class="toglle_containers"><hr><hr><hr></label>
+
+				<div id="allnavigation">
+					<div id="overlay"></div>
+					<% if(!onlineCheck){%>
+					<div id="navigation_small_screen">
+					<%} else {%>
+					<div id="navigation_small_screen" class="onlineTrueNavigation_small_screen">
+					<%}%>
+						<ul>
+							<li class="item_small_navigation"><a href="/home">ACCEUIL
+							</a></li>
+							<li class="item_small_navigation">
+								<a href="/post">NOS POSTS
+								</a>
+							</li>
+							<% if(adminCheck){%>
+								<li class="item_small_navigation"><a href="/home/new">NEW SERVICE</a></li>
+							<% } %>
+							<% if(adminCheck){%>
+								<li class="item_small_navigation"><a href="/post/new">NEW POST</a></li>
+							<% } %>
+
+							<li id="signup" class="offlineSignup">
+									<a href="/contact">CONTACT</a>
+							</li>
+							<% if(onlineCheck){%>
+							<li class="onlineTrueSignup">
+								<a href="/logout" id="logout"><i class="fas fa-power-off"></i></a>
+							</li>
+							<%}%>
+
+						</ul>
+					</div>
+
+				</div>
+			</nav>
+		</div>
+		
+	</header>
+	<div id="loader" style="display: none;">
+		<div class="loader">Loading...</div>
+	</div>

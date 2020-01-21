@@ -1,0 +1,30 @@
+<%- include('partials/header') %>
+
+	<div class="container section_principal" id="section_post">
+		<% post.forEach(function(posts){ %>
+		<div>
+		<% if(adminCheck){%>
+			<div id="boutonModification">
+				<form action="/post/<%= posts._id %>?_method=DELETE" method="POST">
+					<button type="submit" id="bouttonDelete"><a>DELETE</a></button>
+				</form>
+				<form>
+					<button><a href="/post/<%=posts._id%>/edit" id="bouttonUpdate">UPDATE</a></button>
+				</form>
+			</div>
+		<% }%>
+			<div>
+				<%- posts.tag%>
+			</div>
+		</div>
+		<% }); %>
+	</div>
+
+<script>
+	let iframe = document.getElementsByTagName('iframe');
+	for(let i=0; i<iframe.length; i++){
+		iframe[i].setAttribute('width','100%');
+	}
+</script>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,70 @@
+<footer class="container">
+	<hr>
+	<div id="basDePage">
+		<div id="logoBasDePage">
+				<a href="/home"><img src="logo.png" alt="logo"></a>
+		</div>
+		<div>
+			<h6>Laetitia naturopathie - © Copyright 2020</h6>
+		</div>
+	
+		
+		<div id="iconFooter">
+			<ul>
+					<li><a href="tel:<%=tel%>>"><img src="https://img.icons8.com/cotton/64/000000/hot-line.png" height="25"></a></li>
+					<li><a href="mailto:<%=email%>"><img src="https://img.icons8.com/bubbles/100/000000/important-mail.png" height="25"></a></li>
+					<li><a href="<%=facebook%>"><img src="https://img.icons8.com/plasticine/100/000000/facebook-new.png" height="25"></a></li>
+					<li><a href="https://wa.me/<%=whatsap%>"><img src="https://img.icons8.com/clouds/100/000000/whatsapp.png" height="25"></a></li>
+				</ul>
+						
+		</div>
+	</div>
+
+	
+</footer>
+
+<script src="toogle_script.js"></script>
+<script src="/reload/reload.js"></script>	
+<script>
+
+	let loader = document.getElementById('loader');
+	let section = document.getElementsByClassName('section_principal');
+
+	for(let i=0; i<section.length; i++){
+		console.log(section[i]);
+	}
+
+	let logout = document.getElementById('logout');
+
+	logout.addEventListener('click', e => {
+
+		for(let i=0; i<section.length; i++){
+			section[i].style.display='none';
+		}
+
+		loader.style.display='block';
+	});
+
+
+	let bouttonUpdate = document.getElementById('bouttonUpdate');
+	let bouttonDelete = document.getElementById('bouttonDelete');
+
+	bouttonUpdate.addEventListener('click', e => {
+		for(let i=0; i<section.length; i++){
+			section[i].style.display='none';
+		}
+		loader.style.display='block';
+	});
+
+	bouttonDelete.addEventListener('click', e => {
+		for(let i=0; i<section.length; i++){
+			section[i].style.display='none';
+		}
+		loader.style.display='block';
+
+	});
+
+</script>
+</body>
+	
+</html>

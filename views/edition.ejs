@@ -1,0 +1,34 @@
+<%- include('partials/header') %>
+
+	<div class="container section_principal" >
+	<form id="formNewBlock" action="/home/<%= tipoul._id %>?_method=PUT" method="POST" enctype='multipart/form-data'>
+		<div class="blockInNewBlock">
+			<input type="text" id="title" name="title" placeholder="Title" value="<%=tipoul.name%>" required>
+		</div>
+		<div class="blockInNewBlock">
+			<textarea type="text" id="text" name="text" placeholder="Déscriptif" required rows="10"><%= tipoul.description %></textarea>
+		</div>
+		<div class="blockInNewBlock">
+			<input type="file" id="file" class="fileInput" name="myfile" placeholder="Image" >
+		</div>
+		<div class="submitNewBlock">
+			<input type="submit" id="submit" value="Valider">
+		</div>
+	</form>
+</div>
+
+<script>
+	let sub = document.getElementById('submit');
+	let sec = document.getElementsByClassName('section_principal');
+	let load = document.getElementById('loader');
+
+
+	sub.addEventListener('click', e => {
+		for(let i=0; i<section.length; i++){
+			sec[i].style.display='none';
+		}
+		load.style.display='block';
+	});
+</script>
+
+<%- include('partials/footer') %>

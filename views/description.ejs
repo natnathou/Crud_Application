@@ -1,0 +1,24 @@
+<%- include('partials/header') %>
+
+	<div class="container section_principal" id="section_description">
+	<% if(adminCheck){%>
+		<div id="boutonModification">
+			<form action="/home/<%= tipoul._id %>?_method=DELETE" method="POST">
+				<button type="submit" id="bouttonDelete"><a>DELETE</a></button>
+			</form>
+			<form>
+			<button><a href="/home/<%=tipoul._id%>/edit" id="bouttonUpdate">UPDATE</a></button>
+			</form>
+		</div>
+	<% }%>
+		<h2><%= tipoul.name %></h2>
+		<div id="descriptionText">
+			<img src="data:<%=tipoul.image.contentType%>;base64,<%= tipoul.image.data.toString('base64') %>" alt="<%= tipoul.name %>">
+		</div>
+		<p>
+			<%= tipoul.description %>
+		</p>
+
+	</div>
+
+<%- include('partials/footer') %>

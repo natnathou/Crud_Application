@@ -1,0 +1,28 @@
+<%- include('partials/header') %>
+
+	<div class="container section_principal" id="newPost">
+	<form id="formNewBlock" action="/post" method="POST">
+		<div class="blockInNewBlock">
+			<input type="text" id="post" name="post" placeholder="Post"  required>
+		</div>
+		<div class="submitNewBlock">
+			<input type="submit" id="submit" value="Valider">
+		</div>
+	</form>
+</div>
+
+<script>
+	let sub = document.getElementById('submit');
+	let sec = document.getElementsByClassName('section_principal');
+	let load = document.getElementById('loader');
+
+
+	sub.addEventListener('click', e => {
+		for(let i=0; i<section.length; i++){
+			sec[i].style.display='none';
+		}
+		load.style.display='block';
+	});
+</script>
+
+<%- include('partials/footer') %>

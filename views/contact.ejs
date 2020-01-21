@@ -1,0 +1,38 @@
+<%- include('partials/header') %>
+
+<div class="container section_principal" >
+      <% if(emailResponse!==''){ %>
+    <p id="emailResponse"><%= emailResponse %></p>
+    <%} else {%>
+    <form id="formNewBlock" action="/contact" method="POST">
+        <div class="blockInNewBlock">
+            <input type="text" id="email" name="content[email]" placeholder="Votre email:"  required>
+        </div>
+        <div class="blockInNewBlock">
+            <input type="text" id="subect" name="content[subject]" placeholder="Sujet:" required>
+        </div>
+        <div class="blockInNewBlock">
+            <textarea type="text" id="text" name="content[body]" placeholder="Votre message:" required rows="10"></textarea>
+        </div>
+        <div class="submitNewBlock">
+            <input type="submit" id="submit" value="Envoyer">
+        </div>
+    </form>
+    <%}%>
+</div>
+
+<script>
+    let sub = document.getElementById('submit');
+    let sec = document.getElementsByClassName('section_principal');
+    let load = document.getElementById('loader');
+
+
+    sub.addEventListener('click', e => {
+        for(let i=0; i<section.length; i++){
+            sec[i].style.display='none';
+        }
+        load.style.display='block';
+    });
+</script>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,80 @@
+
+@media (min-width: 1280px) {
+  .container {
+    width: 1240px;
+  }
+}
+
+@media (min-width: 1024px) and  (max-width: 1280px){
+  .container {
+    width: 1020px;
+  }
+}
+
+@media (min-width: 475px) and  (max-width: 1024px){
+  .container {
+    width: 475px;
+  }
+}
+
+@media (max-width: 474px) {
+  .container {
+    width: 90%;
+    min-width: 350px;
+  }
+}
+
+.container{
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.surround{
+  background-color: var(--main-color-secondary);
+  border-radius: 3px;
+  padding: 15px;
+}
+
+
+.btn{
+  color: var(--main-color-primary);
+  display: block;
+  padding: 5px;
+}
+
+.btn:hover {
+  color: var(--main-color-secondary);
+}
+
+.btn>a{
+  color: var(--main-color-primary);
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.btn>a:hover {
+  color: var(--main-color-secondary);
+}
+
+.under_line{
+  border-bottom: 5px solid var(--main-color-primary);
+}
+
+.under_line:hover{
+  border-bottom: 5px solid var(--main-color-secondary);
+}
+
+
+.theme_principal{
+  background-color: transparent; 
+  color: var(--main-color-primary);
+}
+
+.theme_one:hover {
+  background-color: transparent; 
+  background-color: var(--main-color-secondary);
+
+}
