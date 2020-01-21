@@ -21,9 +21,9 @@ const whatsap               = process.env.WHATSAP;
 const facebook              = process.env.Address_Facebook;
 const email                 = process.env.User_email;
 
-// Commande to active to reset database user + service
-const seeddb                = require('./seed');
-seeddb.initialisation();
+// // Commande to active to reset database user + service
+// const seeddb                = require('./seed');
+// seeddb.initialisation();
 
 app.set('view engine', 'ejs');
 app.use('/',express.static(__dirname+'/public'));
