@@ -365,7 +365,7 @@ app.post('/contact', async (req,res) => {
 
 		} else {
 			emailResponse = 'Votre email a bien été envoyé.';
-			console.log('emailResponse);
+			console.log(emailResponse);
 			return res.redirect('/contact');
 		}
 	});
