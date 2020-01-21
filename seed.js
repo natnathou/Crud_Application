@@ -55,8 +55,8 @@ for(let i=0;i<arrayImage.length;i++){
 
 const initialisation = async () => {
 
-		await User.remove({});
-		console.log('user removed');
+		// await User.remove({});
+		// console.log('user removed');
 		await article.remove({});
 		console.log('article removed');
 		await tipoul.remove({});
