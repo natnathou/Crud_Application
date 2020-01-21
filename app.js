@@ -335,24 +335,6 @@ app.post('/contact', async (req,res) => {
 
 	let contents    = req.body.content;
 
-	let transporter = nodemailer.createTransport({
-		host: 'smtp.gmail.com',
-		port: 465,
-		secure: true,
-		auth: {
-			type: 'OAuth2'
-		}
-	});
-
-	transporter.set('oauth2_provision_cb', (user, renew, callback) => {
-		let accessToken = userTokens[user];
-		if(!accessToken){
-			return callback(new Error('Unknown user'));
-		}else{
-			return callback(null, accessToken);
-		}
-	});
-
 	let mailOptions = {
 		envelope: {
 			from: '<' + process.env.User_email + '>', // used as MAIL FROM: address for SMTP
@@ -365,6 +347,17 @@ app.post('/contact', async (req,res) => {
 		text: 'Votre email ci-dessous a bien été réceptionné.\nNous vous répondrons dans les meilleurs délais\n\n*******************************************************\n\n' + contents.body
 
 	};
+
+	let transporter = nodemailer.createTransport({
+		host: 'smtp.gmail.com',
+		port: 465,
+		secure: true,
+		service: process.env.Service_email,
+		auth: {
+			user: process.env.User_email,
+			pass: process.env.Pass_email
+		}
+	});
 
 	transporter.sendMail(mailOptions, function(error, info){
 
@@ -379,8 +372,6 @@ app.post('/contact', async (req,res) => {
 			return res.redirect('/contact');
 		}
 	});
-
-
 
 });
 
