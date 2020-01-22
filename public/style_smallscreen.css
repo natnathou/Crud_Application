@@ -104,6 +104,7 @@ header {
 }
 
 #navigation_small_screen{
+	background-color: var(--main-color-secondary);
 	background-image: url('fond - Copie.jpg');
 	z-index: 1;
 	height: 100%;

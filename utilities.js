@@ -5,7 +5,7 @@ const userModel = require('./models/user');
 const mongoose  = require('mongoose');
 const multer    = require('multer');
 
-
+// STORAGE FUNCTION WHEN A FILE IS UPLOADED
 const storage = multer.diskStorage({
 
 	  destination:  (req, file, cb) => {
@@ -23,6 +23,7 @@ const storage = multer.diskStorage({
  
 const upload = multer({ storage: storage });
 
+// TO FIND ALL THE ITEMS IN MONGODB COLLECTION
 const findCollection = async (nameOfTheCollection, jsonToFind, populateName) =>{
 
 	let response;
@@ -49,6 +50,7 @@ const findCollection = async (nameOfTheCollection, jsonToFind, populateName) =>{
 
 };
 
+// TO CREATE AN ITEM IN MONGDB COLLECTION
 const createItem = async (nameOfTheCollection, jsonToCreate) =>{
 
 	let response;
@@ -66,6 +68,7 @@ const createItem = async (nameOfTheCollection, jsonToCreate) =>{
 
 };
 
+//TO FIND A SPECIFIC ITEM IN MONGODB COLLECTION
 const findItemById = async (nameOfTheCollection, itemId, populateName) =>{
 
 	let response;	
@@ -92,6 +95,7 @@ const findItemById = async (nameOfTheCollection, itemId, populateName) =>{
 
 };
 
+//TO FIND A SPECIFIC ITEM AND UPDATE IN MONGODB COLLECTION
 const findItemByIdAndUpdate = async (nameOfTheCollection, itemId, Update, populateName) =>{
 
 	let response;	
@@ -118,6 +122,7 @@ const findItemByIdAndUpdate = async (nameOfTheCollection, itemId, Update, popula
 
 };
 
+//TO FIND A SPECIFIC ITEM AND REMOVE IN MONGODB COLLECTION
 const findItemByIdAndRemove = async (nameOfTheCollection, itemId, modelePopulate, populateName) =>{
 
 	let response={
@@ -152,7 +157,7 @@ const findItemByIdAndRemove = async (nameOfTheCollection, itemId, modelePopulate
 
 };
 
-
+//MIDLEWARD TO CHECK IF IT'S ADMIN
 const AdminisLoggedIn = (req, res, next) => {
 
    if(req.isAuthenticated() && req.user.username === 'admin') {
@@ -171,6 +176,7 @@ const AdminisLoggedIn = (req, res, next) => {
     		}
 };
 
+//MIDLEWARD TO CHECK IF SOME USER IS ONLINE
 const isLoggedIn = (req, res, next) => {
 
    if(req.isAuthenticated() && req.user.username !== 'admin') {
@@ -188,6 +194,7 @@ const isLoggedIn = (req, res, next) => {
         	}
 };
 
+// TO CHECK IF ADMIN LOGIN TO DISPLAY SOMETHINK THAT JUST ADMIN IS AUTHORIZE TO SEE
 const checkIfAdminForClientSide = (req) => {
 
 	if(req.isAuthenticated() && req.user.username === 'admin') {
@@ -201,6 +208,7 @@ const checkIfAdminForClientSide = (req) => {
 	        }
 };
 
+// TO CHECK IF USER IF ONLINE TO DISPLAY SOMETHING LINK LOGOUT BUTTON
 const checkIfOnlineForClientSide = (req) => {
 
 	if(req.isAuthenticated()) {
@@ -213,6 +221,7 @@ const checkIfOnlineForClientSide = (req) => {
 	        }
 };
 
+//TO CHECK IF EMAIL ALREADY EXIST IN DATABASE
 const findEmail = async (data) => {
 
     try{
@@ -227,7 +236,7 @@ const findEmail = async (data) => {
     }
 };
 
-
+//TO CHECK IF USER EXIST IN DATABASE
 const findUser = async (data) => {
     try{
 
@@ -241,6 +250,7 @@ const findUser = async (data) => {
     }
 };
 
+//FINAL FONCTION TO CHECK IF USER ALREADY EXIST
 const  findIfExist = async (users, mails) => {
 	let message;
 	let response = {
@@ -281,6 +291,7 @@ const  findIfExist = async (users, mails) => {
     }
 };
 
+//TO REGISTER AN USER
 const registrationUser = async (usernames,emails,passwords) => {
 
     try{
